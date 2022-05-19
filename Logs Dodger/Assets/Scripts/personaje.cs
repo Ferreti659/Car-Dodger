@@ -7,11 +7,12 @@ public class personaje : MonoBehaviour
 
     public float speed = 7;
 
-    
+    float screenHalfWidthInWorldUnits = 9.5f;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -22,5 +23,11 @@ public class personaje : MonoBehaviour
         float velocity = inputX * speed;
         transform.Translate(Vector2.right * velocity * Time.deltaTime);
 
-    }
+        if (transform.position.x < -screenHalfWidthInWorldUnits) {
+            transform.position = new Vector2(screenHalfWidthInWorldUnits, transform.position.y);
+        }
+        if (transform.position.x > screenHalfWidthInWorldUnits){
+            transform.position = new Vector2(-screenHalfWidthInWorldUnits, transform.position.y);
+        }
+    } 
 }
