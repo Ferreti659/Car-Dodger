@@ -7,11 +7,13 @@ public class personaje : MonoBehaviour
 
     public float speed = 7;
 
-    float screenHalfWidthInWorldUnits = 9.5f;
+    float screenHalfWidthInWorldUnits;
 
     // Start is called before the first frame update
     void Start()
     {
+        float halfPlayerWidth = transform.localScale.x / 2f;  
+        screenHalfWidthInWorldUnits = Camera.main.aspect * Camera.main.orthographicSize - halfPlayerWidth;
 
     }
 
@@ -24,10 +26,10 @@ public class personaje : MonoBehaviour
         transform.Translate(Vector2.right * velocity * Time.deltaTime);
 
         if (transform.position.x < -screenHalfWidthInWorldUnits) {
-            transform.position = new Vector2(screenHalfWidthInWorldUnits, transform.position.y);
+            transform.position = new Vector2(-screenHalfWidthInWorldUnits, transform.position.y);
         }
         if (transform.position.x > screenHalfWidthInWorldUnits){
-            transform.position = new Vector2(-screenHalfWidthInWorldUnits, transform.position.y);
+            transform.position = new Vector2(screenHalfWidthInWorldUnits, transform.position.y);
         }
     } 
 }
