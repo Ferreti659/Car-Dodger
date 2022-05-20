@@ -10,6 +10,7 @@ public class spawner : MonoBehaviour {
     float nextSpawnTime;
 
     public Vector2 spawnSizeMinMax;
+    public float spawnAngleMax;
 
     Vector2 screenHalfSizeWorldUnits;
 
@@ -27,9 +28,10 @@ public class spawner : MonoBehaviour {
             nextSpawnTime = Time.time + secondBetweenSpawns;
 
             float spawnSize = Random.Range(spawnSizeMinMax.x, spawnSizeMinMax.y);
+            float spawnAngle = Random.Range(-spawnAngleMax, spawnAngleMax);
 
-            Vector2 spawnPosition = new Vector2(Random.Range(-screenHalfSizeWorldUnits.x, screenHalfSizeWorldUnits.x), screenHalfSizeWorldUnits.y + spawnSize/2f);
-            GameObject newBlock = (GameObject)Instantiate(stonesPrefab, spawnPosition, Quaternion.identity);
+            Vector2 spawnPosition = new Vector2(Random.Range(-screenHalfSizeWorldUnits.x, screenHalfSizeWorldUnits.x), screenHalfSizeWorldUnits.y + spawnSize);
+            GameObject newBlock = (GameObject)Instantiate(stonesPrefab, spawnPosition, Quaternion.Euler(Vector3.forward * spawnAngle));
             newBlock.transform.localScale = Vector2.one * spawnSize;
         }
     
