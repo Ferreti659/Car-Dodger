@@ -6,10 +6,11 @@ public class personaje : MonoBehaviour
 {
 
     public float speed = 7;
+    public event System.Action OnPlayerDeath;
 
     float screenHalfWidthInWorldUnits;
 
-    // Start is called before the first frame update
+
     void Start()
     {
         float halfPlayerWidth = transform.localScale.x / 2f;  
@@ -17,7 +18,7 @@ public class personaje : MonoBehaviour
 
     }
 
-    // Update is called once per frame
+
     void Update()
     {
 
@@ -37,6 +38,10 @@ public class personaje : MonoBehaviour
     {
         if(triggerCollider.tag == "Roca")
         {
+            if (OnPlayerDeath != null)
+            {
+                OnPlayerDeath();
+            }
             Destroy(gameObject);
         }
     }
