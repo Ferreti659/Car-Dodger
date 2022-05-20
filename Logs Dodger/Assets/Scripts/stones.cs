@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class stones : MonoBehaviour { 
 
+
     float speed = 7;
 
-    // Start is called before the first frame update
+    public Vector2 speedMinMax;
+    private void Start()
+    {
+        speed = Mathf.Lerp(speedMinMax.x, speedMinMax.y, dificultad.GetDifficultyPercent());
+    }
 
-
-    // Update is called once per frame
     void Update()
     {
 

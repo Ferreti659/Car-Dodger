@@ -153,7 +153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stonesPrefab: {fileID: 515386979487660385, guid: 97ddcc7fc553c5d47908a1eff5dfbce3, type: 3}
-  secondBetweenSpawns: 1
+  secondBetweenSpawnsMinMax: {x: 0.3, y: 1}
   spawnSizeMinMax: {x: 0.3, y: 2.3}
   spawnAngleMax: 15
 --- !u!4 &108950228

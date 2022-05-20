@@ -6,7 +6,7 @@ public class spawner : MonoBehaviour {
 
     public GameObject stonesPrefab;
 
-    public float secondBetweenSpawns = 1;
+    public Vector2 secondBetweenSpawnsMinMax;
     float nextSpawnTime;
 
     public Vector2 spawnSizeMinMax;
@@ -25,7 +25,10 @@ public class spawner : MonoBehaviour {
     {
         if (Time.time > nextSpawnTime)
         {
-            nextSpawnTime = Time.time + secondBetweenSpawns;
+
+            float secondsBetweenSpawns = Mathf.Lerp(secondBetweenSpawnsMinMax.y, secondBetweenSpawnsMinMax.x, dificultad.GetDifficultyPercent());
+
+            nextSpawnTime = Time.time + secondsBetweenSpawns;
 
             float spawnSize = Random.Range(spawnSizeMinMax.x, spawnSizeMinMax.y);
             float spawnAngle = Random.Range(-spawnAngleMax, spawnAngleMax);
