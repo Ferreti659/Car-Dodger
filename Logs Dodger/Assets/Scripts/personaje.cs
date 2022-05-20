@@ -31,5 +31,16 @@ public class personaje : MonoBehaviour
         if (transform.position.x > screenHalfWidthInWorldUnits){
             transform.position = new Vector2(screenHalfWidthInWorldUnits, transform.position.y);
         }
-    } 
+    }
+
+    void OnTriggerEnter2D(Collider2D triggerCollider)
+    {
+        if(triggerCollider.tag == "Roca")
+        {
+            Destroy(gameObject);
+        }
+    }
+
 }
+
+
