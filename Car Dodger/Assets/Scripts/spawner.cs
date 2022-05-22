@@ -5,9 +5,9 @@ using UnityEngine;
 public class spawner : MonoBehaviour { 
 
     public GameObject cochePrefab;
-
-    public float secondsBetweenSpawns = 1;
+    public Vector2 secondsBetweenSpawnsMinMax;
     float nextSpawnTime;
+
 
 
 
@@ -25,9 +25,9 @@ public class spawner : MonoBehaviour {
         if (Time.time > nextSpawnTime)
         {
 
-            //float secondsBetweenSpawns = Mathf.Lerp(secondBetweenSpawnsMinMax.y, secondBetweenSpawnsMinMax.x, dificultad.GetDifficultyPercent());
-
+            float secondsBetweenSpawns = Mathf.Lerp(secondsBetweenSpawnsMinMax.y, secondsBetweenSpawnsMinMax.x, dificultad.GetDifficultyPercent());
             nextSpawnTime = Time.time + secondsBetweenSpawns;
+
             Vector2 spawnPosition = new Vector2(Random.Range(-screenHalfSizeWorldUnits.x, screenHalfSizeWorldUnits.x), screenHalfSizeWorldUnits.y);
             Instantiate (cochePrefab, spawnPosition, Quaternion.identity);
             //GameObject newBlock = (GameObject)Instantiate(stonesPrefab, spawnPosition, Quaternion.Euler(Vector3.forward));

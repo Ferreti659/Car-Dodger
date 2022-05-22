@@ -4,11 +4,16 @@ using UnityEngine;
 
 public class coche : MonoBehaviour
 {
+	public Vector2 speedMinMax;
+	float speed;
 
-    float speed = 7;
+	void Start()
+	{
+		speed = Mathf.Lerp(speedMinMax.x, speedMinMax.y, dificultad.GetDifficultyPercent());
+	}
 
-    void Update()
+	void Update()
     {
-        transform.Translate(Vector3.down * speed * Time.deltaTime);
+        transform.Translate(Vector3.down * speed * Time.deltaTime, Space.Self);
     }
 }

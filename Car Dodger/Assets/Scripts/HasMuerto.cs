@@ -8,6 +8,7 @@ public class HasMuerto : MonoBehaviour
 {
 
     public GameObject gameOverScreen;
+    public GameObject pauseBtn;
     public Text secondsSurvivedUI;
     bool gameOver;
 
@@ -31,8 +32,11 @@ public class HasMuerto : MonoBehaviour
 
     void OnGameOver()
     {
+        pauseBtn.SetActive(false);
         gameOverScreen.SetActive(true);
         secondsSurvivedUI.text = Mathf.RoundToInt(Time.timeSinceLevelLoad).ToString();
         gameOver = true;
     }
+
+
 }
