@@ -32,8 +32,9 @@ public class spawner : MonoBehaviour {
 
 
             Vector2 spawnPosition = new Vector2(Random.Range(-screenHalfSizeWorldUnits.x, screenHalfSizeWorldUnits.x), screenHalfSizeWorldUnits.y);
-            GameObject newBlock = (GameObject)Instantiate(stonesPrefab, spawnPosition, Quaternion.Euler(Vector3.forward));
-            newBlock.transform.localScale = Vector2.one;
+            Instantiate (fallingBlockPrefab, spawnPosition, Quaternion.identity);
+            //GameObject newBlock = (GameObject)Instantiate(stonesPrefab, spawnPosition, Quaternion.Euler(Vector3.forward));
+            //newBlock.transform.localScale = Vector2.one;
         }
     
     }
