@@ -21,6 +21,7 @@ public class HasMuerto : MonoBehaviour
 
     void Update()
     {
+
         if (gameOver)
         {
             if(Input.GetKeyDown(KeyCode.Space))

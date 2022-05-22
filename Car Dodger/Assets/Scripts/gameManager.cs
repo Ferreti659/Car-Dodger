@@ -6,8 +6,29 @@ public class gameManager : MonoBehaviour
 {
     public GameObject pauseBtn;
     public GameObject pauseMenu;
+
     public bool pause;
 
+    void Start()
+    {
+        pauseMenu.SetActive(false);
+    }
+
+    void Update()
+    {
+
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                if (pause)
+                {
+                    playButton();
+                }
+                else
+                {
+                    pauseButton();
+                }
+            }
+    }
 
     public void pauseButton()
     {
@@ -24,6 +45,8 @@ public class gameManager : MonoBehaviour
         pauseMenu.SetActive(false);
         Time.timeScale = 1;
         pause = false;
+
+
     }
 
     public void optionsButton()
@@ -32,21 +55,7 @@ public class gameManager : MonoBehaviour
 
     }
 
-    void update()
-    {
 
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-            if (pause)
-            {
-                pauseButton();
-            }
-            else
-            {
-                playButton();
-            }
-            }
-    }
 }
 
 
