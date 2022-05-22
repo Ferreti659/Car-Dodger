@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class spawner : MonoBehaviour { 
 
-    public GameObject carPrefab;
+    public GameObject cochePrefab;
 
-    public Vector2 secondBetweenSpawns = 1;
+    public float secondsBetweenSpawns = 1;
     float nextSpawnTime;
 
 
@@ -28,11 +28,8 @@ public class spawner : MonoBehaviour {
             //float secondsBetweenSpawns = Mathf.Lerp(secondBetweenSpawnsMinMax.y, secondBetweenSpawnsMinMax.x, dificultad.GetDifficultyPercent());
 
             nextSpawnTime = Time.time + secondsBetweenSpawns;
-
-
-
             Vector2 spawnPosition = new Vector2(Random.Range(-screenHalfSizeWorldUnits.x, screenHalfSizeWorldUnits.x), screenHalfSizeWorldUnits.y);
-            Instantiate (fallingBlockPrefab, spawnPosition, Quaternion.identity);
+            Instantiate (cochePrefab, spawnPosition, Quaternion.identity);
             //GameObject newBlock = (GameObject)Instantiate(stonesPrefab, spawnPosition, Quaternion.Euler(Vector3.forward));
             //newBlock.transform.localScale = Vector2.one;
         }

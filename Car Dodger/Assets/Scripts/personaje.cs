@@ -36,7 +36,7 @@ public class personaje : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D triggerCollider)
     {
-        if(triggerCollider.tag == "Roca")
+        if(triggerCollider.tag == "Coche")
         {
             if (OnPlayerDeath != null)
             {
