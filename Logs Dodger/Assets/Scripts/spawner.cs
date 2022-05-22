@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class spawner : MonoBehaviour { 
 
-    public GameObject stonesPrefab;
+    public GameObject carPrefab;
 
-    public Vector2 secondBetweenSpawnsMinMax;
+    public Vector2 secondBetweenSpawns = 1;
     float nextSpawnTime;
 
-    public Vector2 spawnSizeMinMax;
-    public float spawnAngleMax;
+
 
     Vector2 screenHalfSizeWorldUnits;
 
@@ -26,16 +25,15 @@ public class spawner : MonoBehaviour {
         if (Time.time > nextSpawnTime)
         {
 
-            float secondsBetweenSpawns = Mathf.Lerp(secondBetweenSpawnsMinMax.y, secondBetweenSpawnsMinMax.x, dificultad.GetDifficultyPercent());
+            //float secondsBetweenSpawns = Mathf.Lerp(secondBetweenSpawnsMinMax.y, secondBetweenSpawnsMinMax.x, dificultad.GetDifficultyPercent());
 
             nextSpawnTime = Time.time + secondsBetweenSpawns;
 
-            float spawnSize = Random.Range(spawnSizeMinMax.x, spawnSizeMinMax.y);
-            float spawnAngle = Random.Range(-spawnAngleMax, spawnAngleMax);
 
-            Vector2 spawnPosition = new Vector2(Random.Range(-screenHalfSizeWorldUnits.x, screenHalfSizeWorldUnits.x), screenHalfSizeWorldUnits.y + spawnSize);
-            GameObject newBlock = (GameObject)Instantiate(stonesPrefab, spawnPosition, Quaternion.Euler(Vector3.forward * spawnAngle));
-            newBlock.transform.localScale = Vector2.one * spawnSize;
+
+            Vector2 spawnPosition = new Vector2(Random.Range(-screenHalfSizeWorldUnits.x, screenHalfSizeWorldUnits.x), screenHalfSizeWorldUnits.y);
+            GameObject newBlock = (GameObject)Instantiate(stonesPrefab, spawnPosition, Quaternion.Euler(Vector3.forward));
+            newBlock.transform.localScale = Vector2.one;
         }
     
     }
