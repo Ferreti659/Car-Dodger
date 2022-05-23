@@ -12,6 +12,8 @@ public class gameManager : MonoBehaviour
     public GameObject jugarMenu;
 
 
+
+
     public bool pause;
 
     void Start()
@@ -20,6 +22,7 @@ public class gameManager : MonoBehaviour
         mainMenu.SetActive(true);
         pauseMenu.SetActive(false);
         optionsMenu.SetActive(false);
+
         jugarMenu.SetActive(false);
     }
 
@@ -60,6 +63,7 @@ public class gameManager : MonoBehaviour
 
     public void optionsButton()
     {
+        pauseBtn.SetActive(false);
         pauseMenu.SetActive(false);
         optionsMenu.SetActive(true);
         mainMenu.SetActive(false);
@@ -82,6 +86,13 @@ public class gameManager : MonoBehaviour
     public void cargarButton()
     {
         SceneManager.LoadScene(1);
+    }
+
+    public void atrasButton()
+    {
+        pauseMenu.SetActive(true);
+        optionsMenu.SetActive(false);
+        mainMenu.SetActive(true);
     }
 
 }
