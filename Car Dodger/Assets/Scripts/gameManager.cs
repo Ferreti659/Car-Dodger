@@ -70,6 +70,14 @@ public class gameManager : MonoBehaviour
 
     }
 
+    public void optionsMainButton()
+    {
+
+        optionsMenu.SetActive(true);
+        mainMenu.SetActive(false);
+
+    }
+
     public void jugarButton()
     {
         jugarMenu.SetActive(true);
@@ -92,7 +100,23 @@ public class gameManager : MonoBehaviour
     {
         pauseMenu.SetActive(true);
         optionsMenu.SetActive(false);
+
+    }
+
+    public void atrasJugarButton()
+    {
         mainMenu.SetActive(true);
+
+        jugarMenu.SetActive(false);
+
+    }
+
+    public void atrasOpcionesButton()
+    {
+        mainMenu.SetActive(true);
+        optionsMenu.SetActive(false);
+
+
     }
 
 }
