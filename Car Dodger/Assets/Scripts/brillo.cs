@@ -24,7 +24,7 @@ public class brillo : MonoBehaviour
         
     }
 
-    void ChangeSlider(float valor)
+    public void ChangeSlider(float valor)
     {
         sliderValue = valor;
         PlayerPrefs.SetFloat("brillo", sliderValue);

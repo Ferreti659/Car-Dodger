@@ -10,6 +10,7 @@ public class gameManager : MonoBehaviour
     public GameObject mainMenu;
     public GameObject optionsMenu;
     public GameObject jugarMenu;
+    public GameObject rankingMenu;
 
 
 
@@ -91,6 +92,12 @@ public class gameManager : MonoBehaviour
         Start();
     }
 
+    public void rankingButton()
+    {
+        rankingMenu.SetActive(true);
+        mainMenu.SetActive(false);
+    }
+
     public void cargarButton()
     {
         SceneManager.LoadScene(1);
@@ -115,8 +122,12 @@ public class gameManager : MonoBehaviour
     {
         mainMenu.SetActive(true);
         optionsMenu.SetActive(false);
+    }
 
-
+    public void atrasRankingButton()
+    {
+        mainMenu.SetActive(true);
+        rankingMenu.SetActive(false);
     }
 
 }
