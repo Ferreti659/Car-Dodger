@@ -5,7 +5,8 @@ using UnityEngine;
 public class LeaderBoardController : MonoBehaviour
 {
 
-    public InputField MemberID, PlayerScore;
+    public InputField MemberID;
+    public Text PlayerScore;
     public int ID;
 
     private void Start()

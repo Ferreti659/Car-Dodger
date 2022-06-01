@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using LootLocker.Requests;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -12,11 +13,29 @@ public class HasMuerto : MonoBehaviour
     public Text secondsSurvivedUI;
     bool gameOver;
 
+    public InputField MemberID;
+    public Text PlayerScore;
+    public int ID;
 
-    void Start()
+    private void Start()
     {
+
         FindObjectOfType<personaje>().OnPlayerDeath += OnGameOver;
+
+        LootLockerSDKManager.StartSession("Player", (response) =>
+        {
+            if (response.success)
+            {
+                Debug.Log("success");
+            }
+            else
+            {
+                Debug.Log("Failed1");
+            }
+        });
     }
+
+
 
 
     void Update()
@@ -26,6 +45,17 @@ public class HasMuerto : MonoBehaviour
         {
             if(Input.GetKeyDown(KeyCode.Space))
             {
+                LootLockerSDKManager.SubmitScore(MemberID.text, int.Parse(PlayerScore.text), ID, (response) =>
+                {
+                    if (response.success)
+                    {
+                        Debug.Log("success");
+                    }
+                    else
+                    {
+                        Debug.Log("Failed");
+                    }
+                });
                 SceneManager.LoadScene(1);
             }
         }   
