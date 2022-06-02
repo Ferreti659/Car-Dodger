@@ -7,6 +7,8 @@ using UnityEngine.UI;
 
 public class HasMuerto : MonoBehaviour
 {
+    
+    public LeaderBoard leaderBoard;
 
     public GameObject gameOverScreen;
     public GameObject pauseBtn;
@@ -30,7 +32,7 @@ public class HasMuerto : MonoBehaviour
             }
             else
             {
-                Debug.Log("Failed1");
+                Debug.Log("Failed1" + response.Error);
             }
         });
     }
@@ -45,18 +47,10 @@ public class HasMuerto : MonoBehaviour
         {
             if(Input.GetKeyDown(KeyCode.Space))
             {
-                LootLockerSDKManager.SubmitScore(MemberID.text, int.Parse(PlayerScore.text), ID, (response) =>
-                {
-                    if (response.success)
-                    {
-                        Debug.Log("success");
-                    }
-                    else
-                    {
-                        Debug.Log("Failed");
-                    }
-                });
+
+                DieRoutine();
                 SceneManager.LoadScene(1);
+
             }
         }   
     }
@@ -66,8 +60,17 @@ public class HasMuerto : MonoBehaviour
         pauseBtn.SetActive(false);
         gameOverScreen.SetActive(true);
         secondsSurvivedUI.text = Mathf.RoundToInt(Time.timeSinceLevelLoad).ToString();
+        
         gameOver = true;
     }
 
+    IEnumerator DieRoutine()
+    {
+        Time.timeScale = 0f;
+        yield return new WaitForSecondsRealtime(1f);
+        yield return leaderBoard.SubmitScoreRoutine(Time.timeSinceLevelLoad);
+        Time.timeScale = 1f;
+        
+    }
 
 }

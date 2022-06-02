@@ -5,6 +5,8 @@ using UnityEngine;
 public class personaje : MonoBehaviour
 {
 
+
+
     public float speed = 7;
     public event System.Action OnPlayerDeath;
 
