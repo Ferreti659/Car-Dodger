@@ -1,0 +1,75 @@
+<html >
+<head>
+    <title>Registrar-Usuarios - Car Dodger</title>
+
+</head>
+
+<div id="marco" class="">
+
+    <div class="card-header" style="color: white;">Registro De Usuario</div>
+    <div class="card-body"></div>
+
+    <form (ngSubmit)="createUsuario()">
+
+        <div class="form-group row">
+            <label for="departure_airport" class="col-form-label col-sm-2 text-while" style="color: white; padding-left: 2% ;">Nombre</label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" [(ngModel)]="registros.nombre" name="departure_airport" placeholder="Nombre">
+            </div>
+        </div>
+        <br>
+
+        <div class="form-group row">
+            <label for="destination_airport" class="col-form-label col-sm-2" style="color: white; padding-left: 2% ;" >Primer Apellido</label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" [(ngModel)]="registros.apellido1" name="destination_airport" placeholder="Apellido2">
+            </div>
+        </div>
+        <br>
+        <div class="form-group row">
+            <label for="passengers" class="col-form-label col-sm-2" style="color: white; padding-left: 2% ;" >Segundo Apellido</label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" [(ngModel)]="registros.apellido2" name="passengers" placeholder="Apellido2">
+            </div>
+        </div>
+
+        <br>
+
+        <div class="form-group row">
+            <label for="Username" class="col-form-label col-sm-2" style="color: white; padding-left: 2% ;">username</label>
+            <div class="col-sm-6">
+                
+                <div class="input-group-text ">@
+                <input type="text" class="form-control" [(ngModel)]="registros.username" name="Username" placeholder="Username" style="margin-left: 1%;"></div>
+            </div>
+        </div>
+
+        <br>
+        <div class="form-group row">
+            <label for="passengers" class="col-form-label col-sm-2" style="color: white; padding-left: 2% ;">Email</label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" [(ngModel)]="registros.email" name="passengers" placeholder="gmail@gmail.com">
+            </div>
+        </div>
+
+        <br>
+        <div class="form-group row">
+            <label for="passengers" class="col-form-label col-sm-2" style="color: white; padding-left: 2% ;">Telefono</label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" [(ngModel)]="registros.telefono" name="passengers" placeholder="1233454">
+            </div>
+        </div>
+
+
+        <br>
+
+        <div class="form-group row" style="padding-left: 1% ;">
+            <div class="col-sm-6">
+                 <button class="btn btn-primary" role="button" >Enviar</button> 
+            </div>
+            
+        </div>
+        <br>
+    </form>
+</div>
+</html>
