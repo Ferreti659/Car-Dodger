@@ -14,6 +14,7 @@ import { InicioSesionComponent } from './inicio-sesion/inicio-sesion.component';
 import { ComentariosComponent } from './comentarios/comentarios.component';
 import { RegistroComponent } from './registrar-usuarios/Registro.component';
 import { BodyComponent } from './body/body.component';
+import { DescargasComponent } from './descargas/descargas.component';
 
 
 
@@ -24,6 +25,7 @@ const routes: Routes = [
   {path: 'Comentarios', component: ComentariosComponent},
   {path: 'RegistrarUsuarios', component: RegistroComponent},
   {path: 'BodyComponent', component: BodyComponent},
+  {path: 'Descargas', component: DescargasComponent},
 
 
 ];
@@ -37,7 +39,8 @@ const routes: Routes = [
     ComentariosComponent,
     RegistroComponent,
     BodyComponent,
-    FooterComponent
+    FooterComponent,
+    DescargasComponent
 
   ],
   imports: [
