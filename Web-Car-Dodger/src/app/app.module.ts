@@ -4,26 +4,31 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
 import {HttpClientModule} from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { CookieService } from 'ngx-cookie-service';
 
 
 import { FooterComponent } from "./footer/footer.component";
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import { InicioSesionComponent } from './inicio-sesion/inicio-sesion.component';
+
 import { ComentariosComponent } from './comentarios/comentarios.component';
-import { RegistroComponent } from './registrar-usuarios/Registro.component';
+
 import { BodyComponent } from './body/body.component';
 import { DescargasComponent } from './descargas/descargas.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+
+
 
 
 
 const routes: Routes = [
 
   {path: '', redirectTo: '/', pathMatch: 'full'},
-  {path: 'InicioSesion', component: InicioSesionComponent},
+  {path: 'InicioSesion', component: LoginComponent},
   {path: 'Comentarios', component: ComentariosComponent},
-  {path: 'RegistrarUsuarios', component: RegistroComponent},
+  {path: 'RegistrarUsuarios', component: RegisterComponent},
   {path: 'BodyComponent', component: BodyComponent},
   {path: 'Descargas', component: DescargasComponent},
 
@@ -35,12 +40,15 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     HeaderComponent,
-    InicioSesionComponent,
+    LoginComponent,
     ComentariosComponent,
-    RegistroComponent,
+    RegisterComponent,
     BodyComponent,
     FooterComponent,
-    DescargasComponent
+    DescargasComponent,
+    LoginComponent,
+
+
 
   ],
   imports: [
@@ -49,7 +57,7 @@ const routes: Routes = [
     FormsModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [],
+  providers: [CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
