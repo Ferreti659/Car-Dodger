@@ -2,9 +2,18 @@
 <nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="user">
     <div class="navbar-nav">
         <a class="nav-item nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Pagina Principal</a>
+        
         <a class="nav-item nav-link" routerLink="/users" routerLinkActive="active">Usuarios</a>
+
+        <a class="nav-item nav-link" routerLink="/Download" routerLinkActive="active">Descargas</a>
+
         <a class="nav-item nav-link" (click)="logout()">Logout</a>
+
+        
     </div>
+
+    
+
 </nav>
 
 <!-- main app container -->
