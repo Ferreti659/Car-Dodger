@@ -1,15 +1,14 @@
 ﻿<!-- nav -->
 <nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="user">
-    <div class="navbar-nav">
+    <div class="navbar-nav ">
         <a class="nav-item nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Pagina Principal</a>
         
         <a class="nav-item nav-link" routerLink="/users" routerLinkActive="active">Usuarios</a>
 
-        <a class="nav-item nav-link" routerLink="/Download" routerLinkActive="active">Descargas</a>
-
-        <a class="nav-item nav-link" (click)="logout()">Logout</a>
+        <a class="nav-item nav-link" routerLink="/Download" routerLinkActive="active">Descargar</a>
 
         
+        <button class="btn btn-outline-danger me-3 " (click)="logout()" type="submit" routerLink="/InicioSesion">Logout</button>
     </div>
 
     
@@ -23,8 +22,5 @@
 </div>
 
 <!-- credits -->
-<div class="text-center mt-4">
-    <p>
-        <a >Car Dodger</a>
-    </p>
-</div>
+
+<app-footer></app-footer>

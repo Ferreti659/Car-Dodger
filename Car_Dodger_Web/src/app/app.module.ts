@@ -11,7 +11,8 @@ import { JwtInterceptor, ErrorInterceptor } from './_helpers';
 import { AppComponent } from './app.component';
 import { AlertComponent } from './_components';
 import { HomeComponent } from './home';;
-import { DownloadComponent } from './download/download.component'
+import { DownloadComponent } from './download/download.component';
+import { FooterComponent } from './footer/footer.component'
 
 @NgModule({
     imports: [
@@ -25,7 +26,8 @@ import { DownloadComponent } from './download/download.component'
         AlertComponent,
         HomeComponent,
         DownloadComponent
-    ],
+,
+        FooterComponent    ],
     providers: [
         { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
         { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
