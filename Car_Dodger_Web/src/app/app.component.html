@@ -1,14 +1,26 @@
 ﻿<!-- nav -->
 <nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="user">
     <div class="navbar-nav ">
-        <a class="nav-item nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Pagina Principal</a>
-        
-        <a class="nav-item nav-link" routerLink="/users" routerLinkActive="active">Usuarios</a>
-
-        <a class="nav-item nav-link" routerLink="/Download" routerLinkActive="active">Descargar</a>
-
-        
-        <button class="btn btn-outline-danger me-3 " (click)="logout()" type="submit" routerLink="/InicioSesion">Logout</button>
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item" routerLinkActive="active">
+                <a class="nav-item nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Pagina Principal</a>
+            </li>
+            <li class="nav-item" routerLinkActive="active">
+                <a class="nav-item nav-link" routerLink="/users" routerLinkActive="active">Usuarios</a>
+            </li>
+            <li class="nav-item" routerLinkActive="active">
+                <a class="nav-item nav-link" routerLink="/Download" routerLinkActive="active">Descargar</a>
+            </li>
+            <li class="nav-item" routerLinkActive="active">
+                <a class="nav-item nav-link" routerLink="/Comments" routerLinkActive="active">Comentarios</a>
+            </li>
+            
+        </ul>
+        <div >
+    
+            <button class="btn btn-outline-danger me-3 " (click)="logout()" type="submit" routerLink="/InicioSesion">Logout</button>
+           
+        </div>
     </div>
 
     

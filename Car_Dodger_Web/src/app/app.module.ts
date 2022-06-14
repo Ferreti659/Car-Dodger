@@ -11,9 +11,13 @@ import { JwtInterceptor, ErrorInterceptor } from './_helpers';
 import { AppComponent } from './app.component';
 import { AlertComponent } from './_components';
 import { HomeComponent } from './home';;
-import { DownloadComponent } from './download/download.component';
+import { DownloadComponent } from './download/download.component'
+;
 import { FooterComponent } from './footer/footer.component'
+;
 
+
+import { CommentComponent } from './comment/comment.component'
 @NgModule({
     imports: [
         BrowserModule,
@@ -24,10 +28,11 @@ import { FooterComponent } from './footer/footer.component'
     declarations: [
         AppComponent,
         AlertComponent,
-        HomeComponent,
-        DownloadComponent
-,
-        FooterComponent    ],
+        HomeComponent,
+        DownloadComponent,
+        CommentComponent,
+        FooterComponent ,
+],
     providers: [
         { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
         { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
