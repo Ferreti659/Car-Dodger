@@ -4,18 +4,19 @@ using UnityEngine;
 using LootLocker.Requests;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
 public class HasMuerto : MonoBehaviour
 {
     
     public LeaderBoard leaderBoard;
-
+    public BaseDatos baseDatos;
     public GameObject gameOverScreen;
     public GameObject pauseBtn;
     public Text secondsSurvivedUI;
     bool gameOver;
 
-    public InputField MemberID;
+    public TMP_InputField MemberID;
     public Text PlayerScore;
     public int ID;
 
@@ -57,10 +58,12 @@ public class HasMuerto : MonoBehaviour
 
     void OnGameOver()
     {
+        int tiempo = Mathf.RoundToInt(Time.timeSinceLevelLoad);
         pauseBtn.SetActive(false);
         gameOverScreen.SetActive(true);
-        secondsSurvivedUI.text = Mathf.RoundToInt(Time.timeSinceLevelLoad).ToString();
-        
+        secondsSurvivedUI.text = tiempo.ToString();
+        Debug.Log(MemberID.text);
+        baseDatos.añadirPlayer(MemberID.text, tiempo);
         gameOver = true;
     }
 

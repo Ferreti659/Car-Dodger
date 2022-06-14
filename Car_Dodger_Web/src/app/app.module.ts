@@ -17,7 +17,7 @@ import { FooterComponent } from './footer/footer.component'
 ;
 
 
-import { CommentComponent } from './comment/comment.component'
+import { CommentComponent } from './comment/comment.component';
 @NgModule({
     imports: [
         BrowserModule,

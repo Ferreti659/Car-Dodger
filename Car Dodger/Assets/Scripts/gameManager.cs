@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class gameManager : MonoBehaviour
@@ -11,7 +12,8 @@ public class gameManager : MonoBehaviour
     public GameObject optionsMenu;
     public GameObject jugarMenu;
     public GameObject rankingMenu;
-
+    public BaseDatos baseDatos;
+    public Text rankingText;
 
 
 
@@ -19,9 +21,16 @@ public class gameManager : MonoBehaviour
 
     public bool pause;
 
+    private void Awake()
+    {
+         baseDatos.CrearTabla();
+        Debug.Log("intento");
+    }
     void Start()
     {
+        
         Time.timeScale = 0;
+       
         pauseBtn.SetActive(false);
         mainMenu.SetActive(true);
         pauseMenu.SetActive(false);
@@ -100,6 +109,7 @@ public class gameManager : MonoBehaviour
     {
         rankingMenu.SetActive(true);
         mainMenu.SetActive(false);
+
     }
 
     public void cargarButton()

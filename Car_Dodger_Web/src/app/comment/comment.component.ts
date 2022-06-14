@@ -1,7 +1,7 @@
 import { Component, Input, OnChanges, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'comment-root',
+  selector: 'app-root',
   templateUrl: './comment.component.html',
   styleUrls: ['./comment.component.less']
 })
