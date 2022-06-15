@@ -5,7 +5,7 @@
             <div class="col-12 col-sm-12 comment-container">
                     <p>{{post.commentTxt}}</p>
                     <div class="actions">
-                        <span>{{post.currentDate | date: 'dd/MM/yyyy'}}</span>
+                        <span>{{user.firstName}}{{post.currentDate | date: 'dd/MM/yyyy'}}</span>
                         <span class="divider"></span>
                         <button class="btn btn-sm btn-info" (click)="replyComment(i)">
                             Reply
