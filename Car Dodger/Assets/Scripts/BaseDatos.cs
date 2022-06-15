@@ -5,13 +5,13 @@ using UnityEngine.UI;
 using Mono.Data.Sqlite;
 using System.Data;
 using TMPro;
-
+using System;
 
 public class BaseDatos : MonoBehaviour
 {
 
     private string dbName = "URI=file:Ranking.db";
-
+    public Text[] texto = new Text[5];
     void Start()
     {
         CrearTabla();
@@ -63,16 +63,24 @@ public class BaseDatos : MonoBehaviour
             
             using (var command = connection.CreateCommand())
             {
-                command.CommandText = "SELECT * FROM Ranking ORDER BY tiempo DESC";
+                command.CommandText = "SELECT * FROM Ranking ORDER BY tiempo DESC LIMIT 5";
 
 
                 using (IDataReader reader = command.ExecuteReader())
                 {
+                    int i = 0;
                     while (reader.Read())
                     {
+                       
 
                         Debug.Log("Nombre: " + reader["nombre"] + " \tTiempo: " + reader["tiempo"]);
+
+                        texto[i].text = "Nombre: " + reader["nombre"] + " \tTiempo: " + reader["tiempo"];
+
+                        i++;
+                        Debug.Log(i);
                     }
+                    reader.Close();
                 }
 
             }
