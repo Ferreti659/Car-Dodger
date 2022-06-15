@@ -12,8 +12,8 @@ const usersModule = () => import('./users/users.module').then(x => x.UsersModule
 
 const routes: Routes = [
     {path: 'Download', component: DownloadComponent},
-    {path: 'Comments', component: CommentComponent},
-    { path: '', component: HomeComponent, canActivate: [AuthGuard] },
+    {path: 'Comments', component: CommentComponent , canActivate: [AuthGuard]},
+    { path: '', component: HomeComponent},
     { path: 'users', loadChildren: usersModule, canActivate: [AuthGuard] },
     { path: 'account', loadChildren: accountModule },
 
