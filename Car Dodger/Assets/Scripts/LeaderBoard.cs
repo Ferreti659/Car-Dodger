@@ -25,12 +25,12 @@ public class LeaderBoard : MonoBehaviour
         {
             if (response.success)
             {
-                Debug.Log("success");
+               
                 done = true;
             }
             else
             {
-                Debug.Log("Failed" + response.Error);
+                
                 done = true;
             }
         });

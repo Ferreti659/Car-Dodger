@@ -1,8 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Mono.Data.Sqlite;
 using System.Data;
+using TMPro;
+
 
 public class BaseDatos : MonoBehaviour
 {
@@ -57,7 +60,7 @@ public class BaseDatos : MonoBehaviour
         using (var connection = new SqliteConnection(dbName))
         {
             connection.Open();
-
+            
             using (var command = connection.CreateCommand())
             {
                 command.CommandText = "SELECT * FROM Ranking ORDER BY tiempo DESC";
@@ -67,6 +70,7 @@ public class BaseDatos : MonoBehaviour
                 {
                     while (reader.Read())
                     {
+
                         Debug.Log("Nombre: " + reader["nombre"] + " \tTiempo: " + reader["tiempo"]);
                     }
                 }
