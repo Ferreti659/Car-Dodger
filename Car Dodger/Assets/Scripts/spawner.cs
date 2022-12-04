@@ -7,11 +7,11 @@ public class spawner : MonoBehaviour {
     public GameObject cochePrefab;
     public Vector2 secondsBetweenSpawnsMinMax;
     float nextSpawnTime;
+    public Vector2 screenHalfSizeWorldUnits;
 
 
 
 
-    Vector2 screenHalfSizeWorldUnits;
 
 
     void Start()
